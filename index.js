@@ -11,24 +11,19 @@ class Card {
 //Creating cards
 const darkMagician = new Card("Dark Magician", 2500, 2100);
 const summonedSkull = new Card("Summoned Skull", 2500, 1200);
+const seltGuardian = new Card("Selt Guardian", 1400, 1100);
 const cardsArray = [darkMagician, summonedSkull]
 
-
 // showing cards in the DOM
-const showCard = (card, index) => {
+const displayCardAvailable = (cardProp, index) => {
 // console.log(card.name, card.ATK, card.DEF); ---- TESTING
-let newCard = document.createElement("div")
-newCard.innerHTML =  `${card.name} - ${card.ATK} - ${card.DEF}`
+let card = document.createElement("div")
+card.innerHTML =  `${index} -${cardProp.name} - ${cardProp.ATK} - ${cardProp.DEF}`
 
-const cardContainer = document.querySelector(".card_container")
-cardContainer.appendChild(newCard)
+const cardsContainer = document.querySelector(".cards_container")
+cardsContainer.appendChild(card)
 }
-
-// calling showCard function on line 19.
-const cardProcessed =  cardsArray.forEach(showCard)
-
-
-
+cardsArray.forEach(displayCardAvailable)
 
 // When the button is clicked, it takes the value of the radio button
 positionBtn = document.querySelector(".choose_btn").addEventListener("click", ()=> {
